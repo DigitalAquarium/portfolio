@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <title>Gazillionaire Multiplayer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    @property --background-colour {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #000030;
+    }
+    @property --green-menu-top {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #78ad2a;
+    }
+    @property --green-menu-bottom {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #548512;
+    }
+    @property --blue-menu-top {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #239ae4;
+    }
+    @property --blue-menu-bottom {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #1374c3;
+    }
+    @property --orange-menu-top {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #e5a02a;
+    }
+    @property --orange-menu-bottom {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #cf770c;
+    }
+
+
+body{
+    font-family: Arial, sans-serif;
+    color:white;
+    /*background-size:cover;*/
+    background-image:url('gz-background.png');
+    background-attachment: fixed;
+    margin:0;
+}
+    .navbar {
+        top: 0;
+        padding: 0.5em;
+        position: fixed;
+        width: 100%;
+        background-color: var(--accent-colour);
+        overflow: hidden;
+        display: inline-block;
+    }
+/*.background{
+    display: inline;
+    background-image:url('gz-background.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+    width:50vw;
+    height:200%;
+}
+.background:last-of-type{
+    transform: posX(-50%);
+}*/
+    @keyframes pop-in {
+        0%   {
+            opacity: 0;
+            transform: translateY(75px);
+        }
+        90%{
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    .pop-in{
+        animation: pop-in 1.5s ease-in-out;
+    }
+    h1{
+        font-size: 4em;
+    }
+    #header{
+        text-align: center;
+        padding-inline: 15%;
+        padding-top:200px;
+        padding-bottom:300px;
+    }
+    #header h2{
+        font-size: 2.5em;
+    }
+    #header p, #header .gz-button, .info-text{
+        font-size: 1.5em;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        #header{
+            padding-inline: 10px !important;
+        }
+    }
+.tech-stack{
+    font-size: 1.75em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tech-stack li{
+    padding-right:2.5em;
+}
+
+.gz-bg{
+    background: var(--background-colour)
+}
+.gz-button{
+    display: inline-block;
+    font-size: 0.75em;
+    padding:0.5em;
+    border-radius: 0.5em;
+    text-decoration: none;
+    color:white;
+}
+.gz-button:hover{
+    filter:brightness(75%);
+    cursor: pointer;
+}
+.gz-button-green{
+    background: linear-gradient(to bottom,
+        var(--green-menu-top) 0%,
+        var(--green-menu-top) 50%,
+        var(--green-menu-bottom) 50%,
+        var(--green-menu-bottom) 100%);
+}
+    .gz-button-blue{
+        background: linear-gradient(to bottom,
+        var(--blue-menu-top) 0%,
+        var(--blue-menu-top) 50%,
+        var(--blue-menu-bottom) 50%,
+        var(--blue-menu-bottom) 100%);
+    }
+    .gz-button-orange{
+        background: linear-gradient(to bottom,
+        var(--orange-menu-top) 0%,
+        var(--orange-menu-top) 50%,
+        var(--orange-menu-bottom) 50%,
+        var(--orange-menu-bottom) 100%);
+    }
+.info-row{
+    margin:300px 50px 0 50px;
+    display: flex;
+    min-height: 400px;
+    justify-content: space-between;
+}
+    @media only screen and (max-width: 1600px) {
+        .info-row{
+            margin-inline: 10px;
+        }
+    }
+    .info-row:last-of-type{
+        margin-bottom:300px
+    }
+.info-bg{
+    background:var(--background-colour);
+    border-radius: 1em;
+}
+    @media only screen and (max-width: 1410px) {
+        .info-bg:first-child{
+            border-radius: 1em 0 0 1em;
+        }
+        .info-bg:last-child{
+            border-radius: 0 1em 1em 0;
+        }
+    }
+.info-text-container{
+    width:60%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    @media only screen and (min-width: 3000px) {
+        .info-text-container{width: 80%;}
+    }
+.info-text{
+    margin:20px;
+    display:flex;
+    align-items: center;
+}
+.info-img-container{
+    width:500px;
+    padding:25px;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+}
+    @media only screen and (max-width: 1000px) {
+        .info-img-container{
+            width:350px;
+        }
+    }
+.info-img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 0.5em;
+}
+.caption{
+    font-size: 1.5em;
+    padding: 1em;
+    text-align: center;
+}
+.floating-subheading {
+    text-align: center;
+    font-size:4em;
+    margin: 950px 0 -200px 0;
+}
+br{
+    display:none;
+}
+    @media only screen and (max-width: 1400px) {
+        br:nth-child(2n){
+            display: block;
+        }
+    }
+    @media only screen and (max-width: 1150px) {
+        br{
+         display: block;
+        }
+    }
+    h3{
+        font-size: 1.5em;
+        margin: 20px 0 0 20px;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar" style="z-index:10">
+    <div class="menu-icon">
+        <a class="material-symbols-outlined" href="{%url 'main:index' %}">home</a>
+    </div>
+    <span class="mobile-hide" style="padding-left:5%;font-size:0.8em;">Gazillionaire Multiplayer</span>
+</nav>
+
+<div id=header class="gz-bg">
+    <h1 class="pop-in">Gazillionaire Multiplayer</h1>
+    <a class="gz-button gz-button-green pop-in" href="https://github.com/me57tm/gazillionaire_mp">Gazillionaire_MP on GitHub</a>
+    <h2 class="pop-in">Made Using:</h2>
+    <ul class="tech-stack pop-in">
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>JQuery</li>
+        <li>Flask</li>
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <p class="pop-in">
+        Gazillionaire Multiplayer is a program built to add online multiplayer functionality to an old turn based
+        strategy game. The game already has a local multiplayer mode, but to play online you'd
+        have to email each other a save-file. I couldn't find a solution to this so decided to make one myself!
+    </p>
+    <div class="gz-button gz-button-blue pop-in">What is Gazillionaire?</div>
+    <div class="gz-button gz-button-green pop-in">Why do this?</div>
+    <div class="gz-button gz-button-green pop-in">How was it implemented?</div>
+    <div class="gz-button gz-button-orange pop-in">idk conclusion or something</div>
+
+</div>
+<div id="main-content">
+    <h2 class="floating-subheading">What is Gazillionaire?</h2>
+    <div class="info-row">
+        <div class="info-img-container info-bg"><img class="info-img" src="gz-mainmenu.png"></div>
+        <div class="info-bg info-text-container "><div class="info-text">Gazillionaire is a trading and strategy game released in 1994.<br><br>
+            Players compete to earn as much money as possible by shipping goods and transporting passengers across the galaxy.<br><br>
+            Over the course of the game they have to contend with random events, auctions for upgrades and monopoly style property all while competing against the 6 included AI companies.</div></div>
+    </div>
+    <h2 class="floating-subheading">Why do this?</h2>
+    <div class="info-row">
+        <div class="info-bg info-text-container "><div class="info-text">I randomly came across the game one day and it instantly piqued my interest.<br><br>
+            It has a design style that I can only describe as unhinged and extremely 90s. All the characters are designed to look freakish and were created in what I would think is MS Paint if Gazillionaire didn’t predate it.<br><br>
+            The ships and environments are all highly colourful, in a similar mad style to the sprites, but created in an early 3D program.<br><br>
+            All of this reminds me of the looks of the “Zooks” from the show “Bamzooki” which gave me fond memories of when I was a child.</div></div>
+        <div class="info-img-container info-bg"><img class="info-img" src="gz-planet-art.png"></div>
+    </div>
+    <div class="info-row">
+        <div class="info-img-container info-bg"><img class="info-img" src="gz-quaso-mutta.png"></div>
+        <div class="info-bg info-text-container ">
+            <div class="info-text">
+                The game is quite simple mechanically, mainly buy low and transport to the planet that allows you to sell the high, but it has enough interaction with fun random events to keep it entertaining.<br><br>
+                I thought it would be fun to play online with friends, however without everyone owning a copy and sending the save file back and forth, this wasn’t possible in the original game.
+            </div>
+            <div class="info-text">
+                While thinking about how the game could be controlled over the internet I realised since the game is turn based it could easily be controlled through some form of command line.<br><br>
+                This would also enable it to be used in a “Twitch Plays” setting.
+            </div>
+        </div>
+    </div>
+    <h2 class="floating-subheading">Implementation</h2>
+    <div class="info-row">
+        <div class="info-bg info-text-container ">
+            <h3>Overall Structure</h3>
+            <div class="info-text">
+            The program is set up to control the game through a set of commands, allowing for it to be controlled in a variety of ways.<br><br>
+            Each menu in the game has an associated menu class that controls its functions.<br><br>
+            These menu classes are in turn controlled by a player class, which is the layer that either interacts with the user or controls the game in some other way.<br><br>
+            Finally, the main thread’s job is to work out whose turn it is (The turn order is not consistent) and activate the associated Player object.
+        </div></div>
+        <div class="info-img-container info-bg"><img class="info-img" src="../placeholder.jpeg"></div>
+    </div>
+    <div class="info-row">
+        <div class="info-img-container info-bg">
+            <img class="info-img" src="gz-inspect-exe.png">
+            <div class="caption">Nothing :(</div>
+        </div>
+        <div class="info-bg info-text-container">
+            <h3>Menu Class</h3>
+            <div class="info-text">
+                Each menu class is responsible for translating incoming commands into actions in game. <br><br>
+                The intention for this was to use a module like pywinauto to directly control the buttons in game, however none of the inspection tools could find anything other than the windows menu bar.<br><br>
+                Instead, buttons are pressed by taking control of the mouse, either clicking on a known coordinate or in the case of objects that can move around the screen, by detecting an image.<br><br>
+                The library used to do this works by simply scanning for a set of pixels, which does mean the game window is restricted to a specific size when using this program.
+            </div>
+        </div>
+    </div>
+    <div class="info-row">
+        <div class="info-bg info-text-container ">
+            <h3>Player Class</h3>
+            <div class="info-text">
+                The player class is what issues commands to the menu objects. <br><br>
+                This class has to deal with 3 distinct phases of the game. <br><br>
+                The first phase is clicking through each notification that appears at the start of a turn. <br><br>
+                None of these menus have any decisions to make, so this can be automated. <br><br>
+                Stage two is the main game loop. The player stores the current menu and sends a command to it. <br><br>
+                The function either returns the next menu or None.<br><br>
+                In the case it's another menu that's saved as the current menu, but if it's None the planet has been left and the main loop ends.<br><br>
+                Finally is the end of turn phase, this is the most complicated of the three for the player class to handle...
+            </div>
+        </div>
+        <div class="info-img-container info-bg"><img class="info-img" src="gz-player-class.png"></div>
+    </div>
+    <div class="info-row">
+        <div class="info-img-container info-bg">
+            <img class="info-img" src="../placeholder.jpeg">
+        </div>
+        <div class="info-bg info-text-container">
+            <h3>End of Turn</h3>
+            <div class="info-text">
+                When leaving a planet, first a brief flying animation plays and then after that the game may or may not trigger an auction.<br><br>
+                Auctions prompt the user to enter an amount of money and when everyone's turn ends the highest bidder walks away with either a facility (Think monopoly property but significantly weaker) or ship upgrade.<br><br>
+                After that a series of 0 or more random events are triggered.<br><br>
+                These come in two forms, the first of which is simply a paragraph of text explaining what has happened followed by an "ok" prompt to acknowledge and move on.<br><br>
+                The second is similar, but asks a yes / no response.<br><br>
+                Once all of those are over the next player's turn begins with specific start turn screen.<br><br>
+                Each player controller class has to have a way of dealing with all of these events.
+            </div>
+        </div>
+    </div>
+    Maybe I should reduce the amount of words. Just talk about twitch integration and a general overview of how it works. maybe the bit about clicking too, but I've gone into too much detail again. this isn't a school assignment.
+</div>
+</body>
