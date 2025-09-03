@@ -1,0 +1,74 @@
+<style>
+body{
+    font-family: helvetica;
+    background-image:url('Veil_Nebula_-_NGC6960.jpg');
+    backgound-repeat:repat-y;
+    background-size:cover;
+    background-attachment: fixed;
+    margin:0;
+}
+ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+.li-category{
+    width:100%;
+    height:400px;
+    margin:300px 0 300px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.li-la .category-bg{
+    background:deepskyblue;
+    margin-inline: 50px;
+    transform: skewX(-10deg);
+}
+.li-la .unskew{
+    transform: skewX(10deg);
+}
+.li-ra .category-bg{
+    background:magenta;
+    margin-inline: 50px;
+    transform: skewX(10deg);
+}
+.li-ra .unskew{
+    transform: skewX(-10deg);
+}
+.category-text-container{
+    width:60%;
+}
+.category-img-container{
+    width:20%;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.category-img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 0.5em;
+}
+</style>
+<div id=widthtest>
+
+</div>
+<ul>
+<li class="li-category li-la">
+    <div class="category-bg category-text-container "><div class="category-text unskew">
+        <h3>Lorem Ipsum</h3>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis risus libero, id faucibus metus pretium sit amet. Aenean auctor cursus eros, ac congue justo. Aliquam pulvinar pharetra nulla, ac finibus urna ornare et. Vivamus magna tellus, volutpat in turpis at, bibendum facilisis lorem. Praesent tempus commodo sapien in fermentum. Nam libero quam, pretium eu purus in, ultrices congue velit. Pellentesque nec mauris consectetur, ultrices felis id, tempor erat. Proin in scelerisque ante, sit amet imperdiet velit. Sed ut turpis vitae ipsum eleifend lacinia ut nec nulla. Sed in mauris cursus, lacinia erat quis, volutpat mauris. Nullam magna odio, pretium non nibh at, sagittis tempus ligula. Nulla posuere, quam id porttitor faucibus, diam ex eleifend nunc, nec consectetur justo orci sed arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam euismod sem eu erat laoreet aliquam.</div>
+    </div></div>
+    <div class="category-img-container category-bg"><img class="category-img unskew" src="placeholder.jpeg"></div>
+</li>
+<li class="li-category li-ra">
+    <div class="category-img-container category-bg"><img class="category-img unskew" src="placeholder.jpeg"></div>
+    <div class="category-bg category-text-container "><div class="category-text unskew">Lorem</div></div>
+</li>
+<li class="li-category li-la">Lorem</li>
+<li class="li-category">Lorem</li>
+<li class="li-category">Lorem</li>
+<li class="li-category">Lorem</li>
+</ul>

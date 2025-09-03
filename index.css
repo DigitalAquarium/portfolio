@@ -1,0 +1,112 @@
+*{
+    font-family: helvetica, sans-serif;
+}
+body{
+    background-image: url("Picture1.jpg");
+}
+#everything-container{
+    display: grid;
+    height: 98vh;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+#description{
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+#title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none;
+    box-shadow: none;
+    background-color: transparent;
+}
+#title img{
+    max-width: 90%;
+    width: 90%;
+}
+.box {
+    background-color: white;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    box-shadow: darkgrey 5px 5px 5px;
+    padding: 10px;
+    margin: 20px;
+}
+.panel{
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:0;
+}
+.panel-contents{
+    background: darkgray;
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.panel-contents h2{
+    margin: 0;
+}
+.panel .panel-contents{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.panel:hover .panel-contents{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+}
+.panel-contents p {
+    padding-inline-start: 0.7em;
+}
+.links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.link{
+    padding: 2px 10px 2px 10px;
+    margin-inline: 10px;
+    border-radius: 1em;
+    text-decoration: none;
+    color: white;
+}
+.link-github{
+    background: #08872B;
+}
+.link-youtube{
+    background: #FF0000;
+}
+.link-live{
+    background: cornflowerblue;
+}
+#panel-1{
+    background-image: url("/gazillionaire/gz-mainmenu.png");
+}
+#panel-2{
+    background-image: conic-gradient(grey 0% 25%, yellow 0% 50%, #202020 0% 75%, green 0% 100%);
+    background-size: 10vh 10vh;
+    background-repeat: repeat;
+}
+#panel-3{
+    background-image: url("/pydiplomacy/Early_UI.png");
+}
+#panel-4{
+    background-image: url("/blahaj/20240504_205900.jpg");
+}
+#panel-5{
+    background-image: url("/rca/android-chrome-512x512.png");
+    background-size: auto 75%;
+}
+#panel-6{
+    background-image: url("/maze.jpg");
+}
