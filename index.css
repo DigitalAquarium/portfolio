@@ -11,6 +11,7 @@ body{
     grid-template-rows: 1fr 1fr 1fr;
 }
 #description{
+    font-size: 20px;
     grid-row-start: 2;
     grid-row-end: 4;
 }
@@ -109,4 +110,26 @@ body{
 }
 #panel-6{
     background-image: url("/maze.jpg");
+}
+
+@media (max-width: 1000px){
+    *{
+        font-size:1.1em;
+    }
+    #everything-container{
+        display: grid;
+        height: 150vh;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
+    }
+    #title{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    #description{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
 }
