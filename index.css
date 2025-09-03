@@ -2,7 +2,7 @@
     font-family: helvetica, sans-serif;
 }
 body{
-    background-image: url("Picture1.jpg");
+    background-image: url("./Picture1.jpg");
 }
 #everything-container{
     display: grid;
@@ -91,7 +91,7 @@ body{
     background: cornflowerblue;
 }
 #panel-1{
-    background-image: url("gazillionaire/gz-mainmenu.png");
+    background-image: url("./gazillionaire/gz-mainmenu.png");
 }
 #panel-2{
     background-image: conic-gradient(grey 0% 25%, yellow 0% 50%, #202020 0% 75%, green 0% 100%);
@@ -99,17 +99,17 @@ body{
     background-repeat: repeat;
 }
 #panel-3{
-    background-image: url("pydiplomacy/Early_UI.png");
+    background-image: url("./pydiplomacy/Early_UI.png");
 }
 #panel-4{
-    background-image: url("blahaj/20240504_205900.jpg");
+    background-image: url("./blahaj/20240504_205900.jpg");
 }
 #panel-5{
-    background-image: url("rca/android-chrome-512x512.png");
+    background-image: url("./rca/android-chrome-512x512.png");
     background-size: auto 75%;
 }
 #panel-6{
-    background-image: url("maze.jpg");
+    background-image: url("./maze.jpg");
 }
 
 @media (max-width: 1000px){
